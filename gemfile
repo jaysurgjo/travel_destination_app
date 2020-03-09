@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'sinatra'
+gem "sinatra", ">= 2.0.2"
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
@@ -10,6 +10,9 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem "tux"
+gem "rack", ">= 2.0.8"
+gem "nokogiri", ">= 1.10.8"
+gem "zeitwerk", ">= 2.3.0"
 
 
 group :test do
