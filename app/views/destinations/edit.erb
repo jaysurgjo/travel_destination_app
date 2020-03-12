@@ -1,0 +1,7 @@
+<h1>Edit<%= @destination.name %></h1>
+
+<form action="/destination/<%=@destination.id %>" method="POST">
+  <label> Destination </label>
+  <input type="text" name="name" value="<%=@destination.name %>">
+  <input type="submit" value="Update">
+</form>
