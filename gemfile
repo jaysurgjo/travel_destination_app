@@ -12,7 +12,6 @@ gem 'pry'
 gem "tux"
 gem "rack", ">= 2.0.8"
 gem "nokogiri", ">= 1.10.8"
-gem "zeitwerk", ">= 2.3.0"
 
 
 group :test do
