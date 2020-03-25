@@ -1,0 +1,6 @@
+<h2>Your destinations you chose!</h2>
+<%= @user.username %>
+<% @user.destination.each do |destination| %>
+
+puts "<a href="/destination/<%=destination.id%>"><%= destination.name %></a>"
+<% end %>
