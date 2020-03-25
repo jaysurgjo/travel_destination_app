@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+#class UsersController < ApplicationController
 
-  get '/users/:id' do
-    if !logged_in?
-      redirect '/destination'
-    end
+  #get '/users/:id' do
+    #if !logged_in?
+      #redirect '/destination'
+    #end
