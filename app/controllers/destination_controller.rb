@@ -1,6 +1,7 @@
 class DestinantionController < ApplicationController
   get "/destinations" do
-    ""
+    @destinations = Destination.all
+    erb :'destinations/index'
   end
 
   get "/destinations/new" do
