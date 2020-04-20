@@ -23,6 +23,7 @@ class DestinantionController < ApplicationController
   end
 
   post "/destinations" do
-    ""
+    @destination = Destination.valid_params?(params)
+    erb :'destinations'
   end
 end
