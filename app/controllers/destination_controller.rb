@@ -13,12 +13,13 @@ class DestinantionController < ApplicationController
   end
 
   get "/destinations/:id/edit" do
-    @destinations = Destination.find(params[:id])
+    @destination = Destination.find(params[:id])
     erb :'destinations/edit'
   end
 
   post "/destinations/:id" do
-    ""
+    @destination = Destination.find(params[:id])
+    erb :'destinations/show'
   end
 
   post "/destinations" do
