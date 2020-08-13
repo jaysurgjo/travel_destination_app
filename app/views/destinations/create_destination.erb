@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <style>
-      .title4 {
+      .title3 {
         background-color: grey;
         color: white;
         border: 2px solid black;
@@ -13,8 +13,8 @@
         text-align: center;
       }
       </style>
-      <div class="title4">
-    <title><h1>Edit<%= @destination.name %></h1></title>
+      <div class="title3">
+    <title>Edit Destination</title>
       </div>
   </head>
   <body>
@@ -23,10 +23,11 @@
 <br/><br/><br/>
 <% end %>
 
-    <form action="/destinations/<%=@destination.id %>" method="post">
-      <label> Destination </label>
-      <input type="text" name="name" value="<%=@destination.name %>">
-      <input type="submit" value="Update">
-    </form>
+    <% @destination.each do |d| %>
+      <%= destination.name %><br />
+      <a href="/destination/<%=destination.id%>/edit">Edit</a>
+      <br />
+    <% end %>
+
   </body>
 </html>

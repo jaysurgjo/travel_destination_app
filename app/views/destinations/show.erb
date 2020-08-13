@@ -1,10 +1,37 @@
-<%= @destination.name %><br />
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+    .title {
+      background-color: grey;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    </style>
+    <div class="title">
+    <title><h3>Destinations</h3></title>
+    </div>
+  </head>
+  <body>
 
-  <h3>Destinations</h3>
-  <ol>
-  <% @destination.each do |destination| %>
-    return <a href="/destination/<%=destination.id%>"><%= destination.name %></a></li>
-  <% end%>
-  </ol>
-  <a href="/destination/<%=@destination.id%>/edit">Edit</a>
-  <br />
+
+
+<a href="/destinations">All Destinations</a> |
+
+<% if logged_in? %>
+<a href="/logout">Logout</a>
+<% end %>
+<br/><br/><br/>
+
+
+    <%= @destination.name %>
+    <br />
+      <a href="/destinations/<%=@destination.id%>/edit">Edit</a>
+      <br />
+  </body>
+</html>

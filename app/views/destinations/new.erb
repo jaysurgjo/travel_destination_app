@@ -1,7 +1,33 @@
-<h1>Pick a destination!</h1>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+    .title {
+      background-color: grey;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    </style>
+    <div class="title">
+    <title><h3>Create New Destination</h3></title>
+    </div>
+  </head>
+  <body>
+    <% if logged_in? %>
+    <a href="/logout">Logout</a>
+<br/><br/><br/>
+<% end %>
 
-<form action="/destinations" method="POST">
-  <label> Destination name </label>
-  <input type="text" name="name"> </br>
-  <input type="submit" value="Create">
+
+<h1>Create New Destination</h1>
+<form method="post" action="/destinations">
+  <input name="name" placeholder="Name" />
+  <input type="submit" value="submit">
 </form>
+
+</body>
+</html>

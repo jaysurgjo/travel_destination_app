@@ -1,15 +1,12 @@
 class DestinantionController < ApplicationController
   get "/destinations" do
     @destinations = Destination.all
+    puts "dessstt#{@destinations.inspect}"
     erb :'destinations/index'
   end
 
   get "/destinations/new" do
-    if @destinations.nil?
-      "You must enter a valid location"
-    else
-      erb :'destinations/new'
-    end
+    erb :'destinations/new'
   end
 
   get "/destinations/:id/edit" do
@@ -19,11 +16,18 @@ class DestinantionController < ApplicationController
 
   post "/destinations/:id" do
     @destination = Destination.find(params[:id])
+    if (@destination.update(name: params[:name]))
+      redirect to "/destinations/#{@destination.id}"
+    end
+  end
+
+  get "/destinations/:id" do
+    @destination = Destination.find(params[:id])
     erb :'destinations/show'
   end
 
   post "/destinations" do
-    @destination = Destination.valid_params?(params)
-    erb :'destinations'
+    @destination = Destination.create(name: params[:name], user_id: session[:user_id])
+    redirect to "/destinations/#{@destination.id}"
   end
 end

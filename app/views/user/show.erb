@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <meta charset="utf-8">
+  <style>
+  .dest {
+    background-color: grey;
+    color: white;
+    border: 2px solid black;
+    margin: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  </style>
+
+
+    <div class="dest">
+    <title><h2>Your Destinations!!</h2></title>
+    </div>
+  </head>
+  <body>
+    <% if logged_in? %>
+    <a href="/logout">Logout</a>
+<br/><br/><br/>
+<% end %>
+
+    <%= @user.username %>
+    <% @user.destination.each do |destination| %>
+
+    puts "<a href="/destination/<%=destination.id%>"><%= destination.name %></a>"
+    <% end %>
+  </body>
+</html>

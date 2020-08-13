@@ -1,5 +1,35 @@
-<% @destination.each do |d| %>
-  <%= destination.name %><br />
-  <a href="/destination/<%=destination.id%>/edit">Edit</a>
-  <br />
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+    .title {
+      background-color: grey;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    </style>
+    <div class="title">
+    <title><h3>Destinations</h3></title>
+    </div>
+  </head>
+  <body>
+    <% if logged_in? %>
+    <a href="/logout">Logout</a>
+<br/><br/><br/>
 <% end %>
+
+      <ol>
+      <% @destinations.each do |destination| %>
+        <a href="/destinations/<%= destination.id %>"><%= destination.name %></a> -
+        <a href="/destinations/<%= destination.id %>/edit">Edit</a>
+        <br />
+      <% end%>
+      </ol>
+
+  </body>
+</html>

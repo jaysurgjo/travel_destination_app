@@ -44,7 +44,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (4.0.3)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rack-test (0.6.3)
@@ -110,7 +110,7 @@ DEPENDENCIES
   capybara
   nokogiri (>= 1.10.8)
   pry
-  rack (>= 2.0.8)
+  rack (>= 2.2.3)
   rake
   require_all
   rspec
@@ -122,4 +122,4 @@ DEPENDENCIES
   tux
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.17.2

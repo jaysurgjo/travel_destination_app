@@ -6,34 +6,34 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "secret"
+    set :session_secret, "password_security"
   end
 
   get '/' do
-    erb :index
+     if logged_in?
+    return redirect_to_home
+ end
+    erb :"index"
   end
 
-  post '/login' do
-    @user = User.find_by(username: params[:username])
-    if @user.nil?
-      erb :error
-    else
-      session[:user_id] = @user.id
-      redirect to '/account'
+  helpers do
+
+   def user
+      User.find(session[:user_id])
     end
-  end
 
-  get '/account' do
-    @user = User.find_by_id(session[:user_id])
-    if @user.nil?
-      erb :error
-    else
-      erb :account
+    def redirect_to_home
+      redirect to "/destinations/new"
     end
-  end
 
-  get '/logout' do
-    session.clear
-    redirect '/'
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def redirect_to_login
+      if !logged_in?
+        erb :"index"
+      end
   end
+end
 end
